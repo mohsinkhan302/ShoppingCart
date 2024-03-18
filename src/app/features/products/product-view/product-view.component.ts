@@ -18,7 +18,7 @@ export class ProductViewComponent implements OnInit {
   product: Product;
 
   ngOnInit(): void {
-    // get id from URL params
+    // TODO: get id from URL params repace hard-coded id
      this.product = this.productService.getSingleProduct(1)
   }
 

@@ -2,6 +2,6 @@
  
 <div class="products">
     @for (p of products; track $index) {
-        <shp-product [product]="p"> </shp-product>
+        <shp-product [product]="p" (click)="getProduct(p)"> </shp-product>
     }
 </div>

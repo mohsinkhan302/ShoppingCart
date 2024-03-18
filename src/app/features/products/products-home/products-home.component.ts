@@ -27,7 +27,9 @@ export class ProductsHomeComponent {
     this.products = this.productService.getProducts();
   }
 
+  // TODO: navigate to product-view page (http://localhost:4200/products/4)
   getProduct(product: Product): void {
-    this.router.navigate([""]);
+    // console.log(product)
+    // this.router.navigate([""]);
   }
 }

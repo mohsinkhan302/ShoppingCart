@@ -3,11 +3,12 @@ import { Product } from '../../../shared/models/products';
 import { ProductService } from '../../../core/services/product.service';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { ProductComponent } from '../components/product/product.component';
 
 @Component({
   selector: 'shp-products-home',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ProductComponent],
   templateUrl: './products-home.component.html',
   styleUrl: './products-home.component.scss'
 })

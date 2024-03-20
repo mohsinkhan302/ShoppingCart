@@ -4,6 +4,7 @@ import { ProductService } from '../../../core/services/product.service';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { ProductComponent } from '../components/product/product.component';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'shp-products-home',
@@ -15,8 +16,9 @@ import { ProductComponent } from '../components/product/product.component';
 export class ProductsHomeComponent {
   title = 'Online shopoing app';
   products: Product[];
+  products$: Observable<Product[]>;
 
-  constructor(private productService: ProductService, private router: Router) { 
+  constructor(private productService: ProductService, private router: Router) {
   }
 
   ngOnInit() {
@@ -24,12 +26,10 @@ export class ProductsHomeComponent {
   }
 
   getProducts(): void {
-    this.products = this.productService.getProducts();
+    this.products$ = this.productService.getProducts();
   }
 
-  // TODO: navigate to product-view page (http://localhost:4200/products/4)
   getProduct(product: Product): void {
-    // console.log(product)
-    // this.router.navigate([""]);
+    this.router.navigate(["products", product?.id]);
   }
 }

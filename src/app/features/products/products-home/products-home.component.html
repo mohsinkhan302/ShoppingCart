@@ -1,7 +1,9 @@
 <h1>Welcome to online shopping!</h1>
  
+@if (products$) {
 <div class="products">
-    @for (p of products; track $index) {
+    @for (p of products$ | async; track $index) {
         <shp-product [product]="p" (click)="getProduct(p)"> </shp-product>
     }
 </div>
+}  

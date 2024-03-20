@@ -3,6 +3,7 @@ import { ProductService } from '../../../core/services/product.service';
 import { Product } from '../../../shared/models/products';
 import { CommonModule } from '@angular/common';
 import { ProductComponent } from '../components/product/product.component';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'shp-product-view',
@@ -13,15 +14,21 @@ import { ProductComponent } from '../components/product/product.component';
 })
 
 export class ProductViewComponent implements OnInit {
-  constructor(private productService: ProductService){}
+  constructor(private productService: ProductService, acitvatedRoute: ActivatedRoute) {
+    acitvatedRoute.params.subscribe(x => {
+       this.getProdcut(x['id'])
+    })
+   }
 
   product: Product;
 
-  ngOnInit(): void {
-    // TODO: get id from URL params repace hard-coded id
-     this.product = this.productService.getSingleProduct(1)
+  ngOnInit(): void { 
   }
 
-  
-
+  getProdcut(id: number) {
+    this.productService.getSingleProduct(id)
+      .subscribe(x => {
+        this.product = x;
+      })
+  } 
 }

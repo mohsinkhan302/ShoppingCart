@@ -4,13 +4,15 @@ import { Product } from '../../../shared/models/products';
 import { CommonModule } from '@angular/common';
 import { ProductComponent } from '../components/product/product.component';
 import { ActivatedRoute } from '@angular/router';
+ 
 
 @Component({
   selector: 'shp-product-view',
   standalone: true,
   imports: [CommonModule, ProductComponent],
   templateUrl: './product-view.component.html',
-  styleUrl: './product-view.component.scss'
+  styleUrl: './product-view.component.scss',
+
 })
 
 export class ProductViewComponent implements OnInit {
@@ -30,5 +32,5 @@ export class ProductViewComponent implements OnInit {
       .subscribe(x => {
         this.product = x;
       })
-  } 
+  }
 }

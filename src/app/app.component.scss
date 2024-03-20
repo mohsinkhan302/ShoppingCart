@@ -1,0 +1,20 @@
+nav {
+    // border: 1px dashed gold;
+    display: flex;
+    justify-content: start;
+    gap: 15px;
+    background-color: rgba(128, 128, 128, .1);
+
+    a {
+        padding: 10px;
+        cursor: pointer;
+        font-size: 15px;
+        font-weight: bold;
+        list-style-type: none;
+        text-decoration: none;
+        color: black;
+    }
+    a:hover {
+        background-color: rgba(193, 177, 177, 0.5);
+    }
+}

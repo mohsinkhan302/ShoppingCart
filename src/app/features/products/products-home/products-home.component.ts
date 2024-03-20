@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, ViewChildren } from '@angular/core';
 import { Product } from '../../../shared/models/products';
 import { ProductService } from '../../../core/services/product.service';
 import { CommonModule } from '@angular/common';
@@ -14,19 +14,26 @@ import { Observable } from 'rxjs';
   styleUrl: './products-home.component.scss'
 })
 export class ProductsHomeComponent {
+  @ViewChild(ProductComponent) productComponent: ProductComponent;
+  @ViewChildren(ProductComponent) childer: any;
   title = 'Online shopoing app';
   products: Product[];
   products$: Observable<Product[]>;
 
   constructor(private productService: ProductService, private router: Router) {
   }
-
+  
   ngOnInit() {
-    this.getProducts();
+    this.getProducts();   
+  }
+
+  ngAfterViewInit() {
+    console.log("productComponent", this.productComponent);
+    console.log("childer", this.childer);
   }
 
   getProducts(): void {
-    this.products$ = this.productService.getProducts();
+    this.products$ = this.productService.getProducts(); 
   }
 
   getProduct(product: Product): void {

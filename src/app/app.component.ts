@@ -10,9 +10,10 @@ import { RouterModule, RouterOutlet } from '@angular/router';
   imports: [CommonModule, RouterOutlet, RouterModule],
 })
 export class AppComponent implements OnInit {
+  constructor(){
+    console.log("constructor")
+  }
   title = 'Online shopoing app';
   
-  ngOnInit(): void {
-    
-  }
+  ngOnInit(): void {  console.log("ngOnInit") } 
 }
